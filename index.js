@@ -3,7 +3,7 @@ const accesskey = "fzwaE59O8ReyY2kXYtkaLBA4_P8YfapRNqYJ_0W4rLU";
 const searchForm = document.getElementById("search-form");
 const searchBox = document.getElementById("search-box");
 const searchResult = document.getElementById("search-result");
-const showMoreBtn = document.getElementById("show-more-btn-form");
+const showMoreBtn = document.getElementById("show-more-btn");
 
 let keyword = "";
 let page = 1;
@@ -29,6 +29,13 @@ async function searchImages() {
     imageLink.appendChild(imgElement);
     searchResult.appendChild(imageLink);
   });
+
+  // Show the "Show More" button if there are more results
+  if (results.length > 0) {
+    showMoreBtn.style.display = "block";
+  } else {
+    showMoreBtn.style.display = "none";
+  }
 }
 
 function loadMoreImages() {
